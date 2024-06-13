@@ -21,10 +21,10 @@ protected:
 
 public:
     Figure(const std::string& name, double x, double y);
+    Figure();
     ~Figure();
 
     void display_name() const;
-
     static int getNumberOfFigures();
 };
 
@@ -34,7 +34,6 @@ private:
 
 public:
     Rectangle(double x, double y, double length, double width);
-
     double perimeter() const;
     double area() const;
 };
@@ -45,7 +44,6 @@ private:
 
 public:
     Square(double x, double y, double side);
-
     double perimeter() const;
     double area() const;
 };
@@ -56,9 +54,26 @@ private:
 
 public:
     Circle(double x, double y, double radius);
-
     double perimeter() const;
     double area() const;
+};
+
+class vector {
+private:
+    double x, y;
+
+public:
+    vector(double x, double y);
+
+
+    void display() const;
+    double lenght() const;
+    double angle() const; // angle in radians
+    void set(double x, double y);
+    double getX() const;
+    double getY() const;
+
+    static vector createVector(double angle, double length);
 };
 
 #endif // FIGURES_H

@@ -22,7 +22,8 @@ int Figure::getNumberOfFigures() {
     return numberOfFigures;
 }
 
-// Implementation of the Rectangle class
+Figure::Figure() {}
+
 Rectangle::Rectangle(double x, double y, double length, double width)
         : Figure("Rectangle", x, y), length(length), width(width) {}
 
@@ -34,7 +35,6 @@ double Rectangle::area() const {
     return length * width;
 }
 
-// Implementation of the Square class
 Square::Square(double x, double y, double side)
         : Figure("Square", x, y), side(side) {}
 
@@ -46,7 +46,6 @@ double Square::area() const {
     return side * side;
 }
 
-// Implementation of the Circle class
 Circle::Circle(double x, double y, double radius)
         : Figure("Circle", x, y), radius(radius) {}
 
@@ -56,4 +55,38 @@ double Circle::perimeter() const {
 
 double Circle::area() const {
     return M_PI * radius * radius;
+}
+
+vector::vector(double x, double y) : x(x), y(y) {}
+
+
+
+
+double vector::lenght() const {
+    return std::sqrt(x * x + y * y);
+}
+
+double vector::angle() const {
+    return std::atan2(y, x);
+}
+
+void vector::set(double x, double y) {
+    this->x = x;
+    this->y = y;
+}
+
+double vector::getX() const {
+    return x;
+}
+
+double vector::getY() const {
+    return y;
+}
+
+vector vector::createVector(double angle, double length) {
+    return vector(length * std::cos(angle), length * std::sin(angle));
+}
+
+void vector::display() const {
+    std::cout << "vector: (" << x << "," << y << ")" << std::endl;
 }
